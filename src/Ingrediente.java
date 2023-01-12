@@ -18,6 +18,7 @@ public class Ingrediente {
     public int getGrammi() {
         return grammi;
     }
+    public String getTipologia() { return tipologia; }
 
     //SETTER
     public void setNome(String nome) {

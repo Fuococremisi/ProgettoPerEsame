@@ -1,23 +1,22 @@
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Piatto {
 
     private String nome;
     private String ricetta;
-    private List<Ingrediente> ingredienti;
+    private ArrayList<Ingrediente> ingredienti;
     private double prezzo;
     private float quantitaIngrediente;
 
-    public List<Ingrediente> addIngrediente(){
+    public ArrayList<Ingrediente> addIngrediente(){
         Scanner sc= new Scanner(System.in);
         boolean b=true;
 
         String nome;
         int grammi;
         String tipologia;
-        List <Ingrediente> ingredientiDelPiatto = new ArrayList<>();
 
         do {
             System.out.println("INSERIRE NOME INGREDIENTE");
@@ -29,7 +28,8 @@ public class Piatto {
             sc.nextLine();
 
             Ingrediente questoIngrediente = new Ingrediente(nome, grammi, tipologia);
-            ingredientiDelPiatto.add(questoIngrediente);
+            ingredienti.add(questoIngrediente);
+            System.out.println("->QUESTO INGREDIENTE-> {" + questoIngrediente.getNome() +" - " + questoIngrediente.getTipologia() + questoIngrediente.getGrammi() +"}");
 
             System.out.println("INSERIRE NUOVO INGREDIENTE? y/n");
             String risposta = sc.nextLine().toUpperCase();
@@ -38,21 +38,18 @@ public class Piatto {
                 b = false;
             }
         }while (b==true);
-
-     return ingredientiDelPiatto;
+     return ingredienti;
     }
 
     public static boolean PiattoVegano (){
-
         return true;
     }
 
-    public Piatto(String nome, String ricetta, List<Ingrediente> ingredienti, double prezzo) {
+    public Piatto(String nome, String ricetta, ArrayList<Ingrediente> ingredienti, double prezzo) {
         this.nome = nome;
         this.ricetta = ricetta;
         this.ingredienti = ingredienti;
         this.prezzo = prezzo;
-
     }
 
     //GETTER
@@ -64,7 +61,7 @@ public class Piatto {
         return ricetta;
     }
 
-    public List<Ingrediente> getIngredienti() {
+    public ArrayList<Ingrediente> getIngredienti() {
         return ingredienti;
     }
 
@@ -85,7 +82,7 @@ public class Piatto {
         this.ricetta = ricetta;
     }
 
-    public void setIngredienti(List<Ingrediente> ingredienti) {
+    public void setIngredienti(ArrayList<Ingrediente> ingredienti) {
         this.ingredienti = ingredienti;
     }
 
